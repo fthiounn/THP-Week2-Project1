@@ -1,3 +1,9 @@
+François Thiounn
+The Hacking Project Week 3 Project 1
+Monday 7th October
+
+
+
 Small exercices in Ruby -- RSpec 3 Edition
 ==========
 
