@@ -35,7 +35,6 @@ describe "#translate" do
     s = translate("quiet")
     expect(s).to eq("ietquay")
   end
-
   it "counts 'qu' as a consonant even when it's preceded by a consonant" do
     s = translate("square")
     expect(s).to eq("aresquay")
@@ -48,6 +47,14 @@ describe "#translate" do
 
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
+  it "Cap words are still capitalized" do
+    s = translate("the Quick Brown fox")
+    expect(s).to eq("ethay Ickquay Ownbray oxfay")
+  end
   # * retain the punctuation from the original phrase
+  it "saving punctuation" do
+    s = translate("the Quick, Brown: fox")
+    expect(s).to eq("ethay Ickquay, Ownbray: oxfay")
+  end
 
 end
