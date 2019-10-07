@@ -9,10 +9,9 @@
 
 def translate (str)
 	return str.split(/ |\_|\-/).map { |word| process(word)}.join(" ")
-	return str.scan(/[\w'-]+|[[:punct:]]+/)
 end
 def process(word)
-	voyelle = ["a","e","i","o","u",]
+	vowels = ["a","e","i","o","u",]
 	if /[[:upper:]]/.match(word[0])	
 		iscap = true
 	else
@@ -31,12 +30,12 @@ def process(word)
 		return case3(word).capitalize if iscap 
 		return case3(word) + tmp if  ponct
 		return case3(word) 
-	elsif    word.size >= 1 && voyelle.include?(word[0])
+	elsif    word.size >= 1 && vowels.include?(word[0])
 		return case1(word).capitalize + tmp if iscap && ponct
 		return case1(word).capitalize if iscap 
 		return case1(word) + tmp if  ponct
 		return case1(word) 
-	elsif word.size >= 2 && voyelle.include?(word[1])
+	elsif word.size >= 2 && vowels.include?(word[1])
 		return case2(word).capitalize + tmp if iscap && ponct
 		return case2(word).capitalize if iscap 
 		return case2(word) + tmp if  ponct
@@ -46,12 +45,12 @@ def process(word)
 		return case4(word).capitalize if iscap 
 		return case4(word) + tmp if  ponct
 		return case4(word) 
-	elsif word.size >= 3 && voyelle.include?(word[2])
+	elsif word.size >= 3 && vowels.include?(word[2])
 		return case3(word).capitalize + tmp if iscap && ponct
 		return case3(word).capitalize if iscap 
 		return case3(word) + tmp if  ponct
 		return case3(word) 
-	elsif word.size >= 4 && voyelle.include?(word[3])
+	elsif word.size >= 4 && vowels.include?(word[3])
 		return case4(word).capitalize + tmp if iscap && ponct
 		return case4(word).capitalize if iscap 
 		return case4(word) + tmp if  ponct
